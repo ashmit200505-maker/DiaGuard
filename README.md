@@ -14,7 +14,6 @@
 
 - [The Problem](#-the-problem-indias-silent-epidemic)
 - [The Solution](#-the-solution)
-- [Hardware Architecture](#-hardware-architecture)
 - [Technical Stack](#-technical-stack)
 - [Key Features](#-key-features)
 - [Roadmap](#-roadmap)
