@@ -45,9 +45,6 @@ India is the **Diabetes Capital of the World** — with over **101 million diabe
 DiaGuard is a **3-tier integrated platform** that replaces the needle with light, guesswork with AI, and one-size-fits-all advice with culturally intelligent coaching.
 
 ### Tier 1 — Non-Invasive Hardware
-- Uses **Short-Wave Infrared (SWIR) sensing at 1550nm wavelength**
-- Glucose molecules have a unique absorption signature in the SWIR spectrum
-- **Transcutaneous measurement** through the skin — zero finger-pricks, zero pain, zero strips
 
 ### Tier 2 — Explainable Machine Learning
 - Custom **Random Forest classifier** trained on multi-parameter biosignals
@@ -59,46 +56,8 @@ DiaGuard is a **3-tier integrated platform** that replaces the needle with light
 - Auto-generates **Indian diet charts** (South Indian, North Indian, Bengali, etc.)
 - Explains risk factors in plain language, building health literacy from the ground up
 
----
-
-## ⚙️ Hardware Architecture
 
 ```
-┌──────────────────────────────────────────────────────┐
-│                  DiaGuard Sensor Module               │
-│                                                        │
-│  ┌──────────────┐     ┌───────────────┐               │
-│  │  1550nm SWIR │────▶│ InGaAs        │               │
-│  │  LED Source  │     │ Photodiode    │               │
-│  └──────────────┘     └──────┬────────┘               │
-│                              │ Analog Signal           │
-│                       ┌──────▼────────┐               │
-│                       │ ADS1220       │               │
-│                       │ 24-bit ADC    │               │
-│                       └──────┬────────┘               │
-│                              │ Digital (SPI)           │
-│                       ┌──────▼────────┐               │
-│                       │ ESP32-WROOM   │               │
-│                       │ -32U          │               │
-│                       │ Dual-Core MCU │               │
-│                       └──────┬────────┘               │
-│                              │ WiFi / BLE              │
-│                       ┌──────▼────────┐               │
-│                       │  Cloud / App  │               │
-│                       └───────────────┘               │
-└──────────────────────────────────────────────────────┘
-```
-
-| Component | Part | Specification |
-|---|---|---|
-| **Microcontroller** | ESP32-WROOM-32U | Dual-core Xtensa LX6, 240 MHz, on-device AI acceleration, Wi-Fi + BLE |
-| **ADC** | ADS1220 | 24-bit resolution, SPI interface, clinical-grade signal fidelity |
-| **Sensor** | InGaAs Photodiode | Optimized for 1550nm SWIR capture, high sensitivity in NIR band |
-| **Light Source** | 1550nm SWIR LED | Targets glucose-specific absorption window |
-| **Connectivity** | BLE 5.0 + Wi-Fi | Real-time sync to mobile app and cloud |
-
----
-
 ## 🛠️ Technical Stack
 
 ### AI / ML
